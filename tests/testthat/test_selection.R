@@ -1,10 +1,9 @@
-# Test for tournament and proportional
-
-library(testthat)
+context("Tests for tournament and proportional")
 
 X <- mtcars[-1]
 y <- unlist(mtcars[1])
 index <-initialize_parents(10,20)$index
+dict.fitness <<- new.env()
 models <- ranked_models(index, X, y)
 models_err <- models
 models_err$error <- 1:nrow(models_err)

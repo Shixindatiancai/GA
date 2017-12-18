@@ -1,7 +1,9 @@
 ###########################################################################################
 # Function: breed
 #
-#' Breeding to create a new combination of predictors to use in
+#' Breed the next generation
+#'
+#' @description Breeding to create a new combination of predictors to use in
 #'   the regression, via genetic crossover and mutation by default.
 #'
 #' @param parents A tuple (2-list) of ordered numeric vectors,
@@ -28,8 +30,8 @@
 #' ## list of numeric vectors representing the next generation
 #' next_gen <- unlist(lapply(parent_gen, breed, C), FALSE, FALSE)
 
-breed <- function(parents, C, n = 1, op = NULL, cluster=NA...) {
-  if (n >= C - 1) {
+breed <- function(parents, C, n = 1, op = NULL, ...) {
+  if (n >= C) {
     msg <- paste0("Number of crossover points is greater than ",
                   "chromosome length. Using default number of ",
                   "crossover points (1) instead.")
